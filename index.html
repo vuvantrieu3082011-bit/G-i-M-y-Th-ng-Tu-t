@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect - Shiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        /* Bố cục ảnh ở trên */
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+        .cover-art {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        /* Trình phát nhạc */
+        audio {
+            margin-top: 10px;
+            filter: sepia(20%) saturate(70%) grayscale(1) invert(0.9); /* Làm đẹp thanh audio mặc định */
+        }
+        /* Hiệu ứng chú mèo pixel đi qua màn hình */
+        .cat-track {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+        }
+        .pixel-cat {
+            position: absolute;
+            height: 80px; /* Điều chỉnh kích thước mèo */
+            left: -100px;
+            /* Thay bằng link ảnh GIF mèo pixel động của bạn nếu muốn */
+            animation: walkAcross 12s linear infinite;
+            image-rendering: pixelated; /* Giữ độ nét pixel cho ảnh */
+        }
+        @keyframes walkAcross {
+            0% {
+                left: -100px;
+                transform: scaleX(1); /* Hướng mặt về bên phải */
+            }
+            49% {
+                transform: scaleX(1);
+            }
+            50% {
+                left: calc(100% + 100px);
+                transform: scaleX(-1); /* Quay mặt lại khi đi hết đường */
+            }
+            51% {
+                left: calc(100% + 100px);
+                transform: scaleX(-1);
+            }
+            100% {
+                left: -100px;
+                transform: scaleX(-1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- https://cdn.phototourl.com/free/2026-07-24-2cdad90b-2f04-408e-b5dd-120ce50a26bd.jpg -->
+        <img class="cover-art" src="https://picsum.photos" alt="Cover Art">
+        <h2 style="color: white; margin-bottom: 10px;">Perfect</h2>
+        <p style="color: #aaa; margin-bottom: 20px;">Shiki</p>
+        
+        <!-- Thay link nhạc của bạn vào đây -->
+        <audio controls autoplay loop>
+            <source src="audio.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ phát âm thanh.
+        </audio>
+    </div>
+
+    <!-- Khu vực chú mèo đi qua -->
+    <div class="cat-track">
+        <!-- Sử dụng một ảnh GIF mèo pixel có sẵn từ internet -->
+        <img class="pixel-cat" src="https://giphy.com" alt="Pixel Cat">
+    </div>
+
+    <script>
+        // Tự động phát nhạc có thể bị chặn bởi trình duyệt, đoạn này giúp kích hoạt khi user click bất kỳ đâu
+        document.body.addEventListener('click', function() {
+            const audio = document.querySelector('audio');
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+    </script>
+
+</body>
+          </html>
+          
