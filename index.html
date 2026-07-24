@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tôi đẹp trai vcl</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(135deg,#111,#222,#000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    animation:fade 1.2s;
+}
+
+h1{
+    color:#fff;
+    font-size:55px;
+    text-shadow:0 0 15px red;
+    margin-bottom:30px;
+    animation:blink 1s infinite alternate;
+}
+
+img{
+    width:420px;
+    max-width:90%;
+    border-radius:20px;
+    border:6px solid red;
+    box-shadow:0 0 35px red;
+}
+
+@keyframes blink{
+    from{transform:scale(1);}
+    to{transform:scale(1.05);}
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>TÔI ĐẸP TRAI VCL 😎🔥</h1>
+    <img src="anh.jpg" alt="Ảnh của tôi">
+</div>
+
+</body>
+</html>
